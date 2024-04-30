@@ -12,6 +12,13 @@
         "lint-staged": "lint-staged",
         "prepare": "husky install"
     },
+    "lint-staged": {
+        "src/**/*.{ts,tsx,json,scss}": [
+            "yarn prettier",
+            "yarn eslint",
+            "git add ."
+        ]
+    },
     "dependencies": {
         "clsx": "^2.1.1",
         "next": "14.2.3",
