@@ -10,6 +10,7 @@
         "pravatar",
         "signin",
         "tailwindcss",
+        "tseslint",
         "zustand"
     ]
 }

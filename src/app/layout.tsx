@@ -23,7 +23,7 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const session: ProfileProps = (await getServerSession(authOptions)) as ProfileProps;
+    const session: ProfileProps | null = (await getServerSession(authOptions)) as ProfileProps;
 
     return (
         <html lang="en">
