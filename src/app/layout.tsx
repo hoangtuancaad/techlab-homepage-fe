@@ -23,13 +23,14 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const session: ProfileProps | null = await getServerSession(authOptions);
+    const session: ProfileProps = (await getServerSession(authOptions)) as ProfileProps;
 
     return (
         <html lang="en">
             <body className={roboto.className}>
                 <AuthProvider>
-                    {session ? <Layouts session={session}>{children}</Layouts> : children}
+                    <Layouts session={session}>{children}</Layouts>
+                    {/* {session ? <Layouts session={session}>{children}</Layouts> : children} */}
                 </AuthProvider>
             </body>
         </html>

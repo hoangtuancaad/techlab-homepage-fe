@@ -21,6 +21,11 @@ const config: Config = {
                     DEFAULT: "#3b82f6",
                 },
             },
+            flexBasis: {
+                "1/4": "calc(25% - 1rem)",
+                "1/3": "calc(33.33% - 1rem)",
+                "1/2": "calc(50% - 1rem)",
+            },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
                 "gradient-conic":

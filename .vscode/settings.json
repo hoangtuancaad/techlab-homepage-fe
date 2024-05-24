@@ -2,5 +2,14 @@
     // Remove Unknown at rule @tailwind
     "css.customData": [".vscode/tailwind.json"],
 
-    "cSpell.words": ["clsx", "heroicons", "NEXTAUTH", "signin", "tailwindcss", "zustand"]
+    "cSpell.words": [
+        "clsx",
+        "datepicker",
+        "heroicons",
+        "NEXTAUTH",
+        "pravatar",
+        "signin",
+        "tailwindcss",
+        "zustand"
+    ]
 }

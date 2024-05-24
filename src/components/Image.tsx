@@ -5,8 +5,9 @@ import Image from "next/image";
 import clsx from "clsx";
 
 //** Interfaces */
-interface ImageProps extends Omit<React.ComponentProps<typeof Image>, "src"> {
+interface ImageProps extends Omit<React.ComponentProps<typeof Image>, "src" | "alt"> {
     src?: string;
+    alt?: string;
     isInteractive?: boolean;
 }
 

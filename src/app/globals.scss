@@ -11,7 +11,7 @@
 }
 
 .title {
-    @apply font-bold text-primary text-xl;
+    @apply mb-2 font-bold text-primary text-xl;
 }
 
 .datepicker {
@@ -20,6 +20,18 @@
     input {
         @apply cursor-pointer;
     }
+}
+
+// Header
+.header {
+    @apply flex items-center justify-between;
+    @apply py-2;
+}
+
+// Card
+.card {
+    @apply flex flex-col gap-4 p-4 bg-white border rounded-md shadow-md;
+    @apply md:basis-[calc(25%-0.75rem)] basis-[calc(50%-0.75rem)];
 }
 
 // Button
