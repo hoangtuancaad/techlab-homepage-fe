@@ -1,8 +1,8 @@
 "use client";
 
-import { BellIcon } from "@heroicons/react/24/outline";
 import React from "react";
-import ImageComponent from "../Image";
+import ImageComponent from "@/components/Image";
+import { BellIcon } from "@heroicons/react/24/outline";
 
 export default function Profile() {
     return (

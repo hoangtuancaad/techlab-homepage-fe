@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
+import clsx from "clsx";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import { ProfileProps } from "@/types/profileProps";
 import { useAppStore } from "@/stores/useAppStore";
-import clsx from "clsx";
 
 type LayoutProps = {
     session: ProfileProps;

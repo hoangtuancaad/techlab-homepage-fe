@@ -2,8 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import Search from "../Search";
 import Profile from "./Profile";
+import Search from "@/components/Search";
 
 export default function Header() {
     return (
