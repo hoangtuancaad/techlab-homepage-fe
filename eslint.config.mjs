@@ -46,8 +46,10 @@ export default [
             semi: ["warn", "always"],
 
             "react/display-name": "off",
-            // Resolved no-unescaped-entities React such as <div>`'`</div>
+
+            //** Resolved no-unescaped-entities React such as <div>`'`</div> */
             "react/no-unescaped-entities": "off",
+
             "react/no-unknown-property": [
                 2,
                 {
