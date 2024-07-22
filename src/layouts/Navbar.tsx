@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import Routers from "./Routers";
-import Button from "../Button";
+import Button from "@/components/Button";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useAppStore } from "@/stores/useAppStore";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
+import Layouts from "@/layouts";
 import AuthProvider from "@/components/AuthProvider";
-import Layouts from "@/components/Layouts";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/authOptions";
 import { ProfileProps } from "@/types/profileProps";
