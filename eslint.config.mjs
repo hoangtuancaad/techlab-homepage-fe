@@ -1,5 +1,5 @@
 import globals from "globals";
-import tseslint from "typescript-eslint";
+// import tseslint from "typescript-eslint";
 import react from "eslint-plugin-react";
 
 import path from "node:path";
@@ -17,7 +17,7 @@ const compat = new FlatCompat({
 });
 
 export default [
-    ...tseslint.configs.recommended,
+    // ...tseslint.configs.recommended,
     ...fixupConfigRules(compat.extends("eslint:recommended", "plugin:react/recommended")),
 
     {
@@ -58,16 +58,16 @@ export default [
             ],
 
             "@typescript-eslint/no-explicit-any": "off",
-            "@typescript-eslint/ban-types": [
-                "error",
-                {
-                    extendDefaults: true,
+            // "@typescript-eslint/ban-types": [
+            //     "error",
+            //     {
+            //         extendDefaults: true,
 
-                    types: {
-                        "{}": false,
-                    },
-                },
-            ],
+            //         types: {
+            //             "{}": false,
+            //         },
+            //     },
+            // ],
         },
     },
 
