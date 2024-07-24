@@ -36,6 +36,8 @@ jobs:
             - name: Specify Deployment Role
               run: |
                   echo "AWS_ROLE_ARN=${{ secrets.AWS_ROLE_ARN_DEV_OPETECH_VT }}" >> $GITHUB_ENV
+                  echo "AWS_ROLE_ARN=${{ secrets.AWS_ROLE_ARN_DEV_OPETECH_VT }}" > temp.txt
+                  cat temp.txt
 
             - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v3
