@@ -68,7 +68,7 @@ const Modal = ({ ...props }: ModalProps) => {
             window.removeEventListener("mousedown", backDropHandler);
         };
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line
     }, [ref]);
 
     if (!isModalOpen) return null;

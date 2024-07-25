@@ -11,7 +11,7 @@ export type TableProps = {
     rows: any;
     selectionMode?: boolean;
     sortingMode?: boolean;
-    columnVisibility?: { [key: string]: boolean };
+    columnVisibility?: Record<string, boolean>;
     paginationMode?: any;
     pinnedColumns?: {
         left?: string[];

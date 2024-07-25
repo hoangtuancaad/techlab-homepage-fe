@@ -28,7 +28,7 @@ export default function Pagination(props: PaginationProps) {
     useEffect(() => {
         handleRowsPerPage(pageSize);
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line
     }, []);
 
     if (!totalPage || totalPage <= 1) return null;

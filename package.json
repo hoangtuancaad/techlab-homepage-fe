@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "PORT=80 next dev",
+        "dev": "next dev",
         "build": "next build",
         "start": "PORT=80 next start",
         "lint": "next lint",
@@ -30,19 +30,21 @@
         "zustand": "^4.5.2"
     },
     "devDependencies": {
-        "@eslint/compat": "^1.0.1",
+        "@eslint/compat": "^1.1.1",
+        "@eslint/eslintrc": "^3.1.0",
         "@eslint/js": "^9.7.0",
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
         "eslint": "^9.7.0",
-        "eslint-plugin-react": "^7.35.0",
-        "globals": "^15.3.0",
+        "eslint-config-next": "^14.2.5",
+        "globals": "^15.8.0",
         "husky": "^9.0.11",
         "lint-staged": "^15.2.2",
         "postcss": "^8",
         "prettier": "^3.2.5",
         "tailwindcss": "^3.4.1",
-        "typescript": "^5.5.4"
+        "typescript": "^5.5.4",
+        "typescript-eslint": "^7.17.0"
     }
 }
