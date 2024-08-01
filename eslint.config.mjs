@@ -44,15 +44,7 @@ const eslintConfig = [
             "@typescript-eslint/no-explicit-any": "off",
             "@typescript-eslint/consistent-type-definitions": "off",
             "@typescript-eslint/no-empty-function": "off",
-            "@typescript-eslint/ban-types": [
-                "error",
-                {
-                    extendDefaults: true,
-                    types: {
-                        "{}": false,
-                    },
-                },
-            ],
+            "@typescript-eslint/no-unused-expressions": "off",
         },
     },
 
