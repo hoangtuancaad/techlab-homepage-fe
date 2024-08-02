@@ -39,7 +39,7 @@ const config: Config = {
                 fadeInLeft: "fadeInLeft .2s ease-in-out",
             },
 
-            // that is actual animation
+            // Keyframes
             keyframes: () => ({
                 zoomIn: {
                     "0%": {

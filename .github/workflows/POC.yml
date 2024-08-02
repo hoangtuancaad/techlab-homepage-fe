@@ -51,11 +51,11 @@ jobs:
 
             - name: Set Environments
               run: |
-                  REPOSITORY_NAME="opetech-ai/opegpt-${{ env.ENVIRONMENT }}-techlab-management-fe"
+                  REPOSITORY_NAME="opetech-ai/opegpt-${{ env.ENVIRONMENT }}-techlab-homepage-fe"
                   echo "REPOSITORY_NAME=${REPOSITORY_NAME}" >> $GITHUB_ENV
                   echo "ECR_REPOSITORY=${{ steps.login-ecr.outputs.registry }}/${REPOSITORY_NAME}" >> $GITHUB_ENV
-                  echo "ECS_TASK_SERVICE_NAME=opegpt-${{ env.ENVIRONMENT }}-techlab-management-fe" >> $GITHUB_ENV
-                  echo "ECS_CLUSTER_NAME=opegpt-${{ env.ENVIRONMENT }}-techlab-management-fe" >> $GITHUB_ENV
+                  echo "ECS_TASK_SERVICE_NAME=opegpt-${{ env.ENVIRONMENT }}-techlab-homepage-fe" >> $GITHUB_ENV
+                  echo "ECS_CLUSTER_NAME=opegpt-${{ env.ENVIRONMENT }}-techlab-homepage-fe" >> $GITHUB_ENV
 
             - name: Build Docker image
               run: |

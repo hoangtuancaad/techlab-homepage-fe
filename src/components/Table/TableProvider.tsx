@@ -4,7 +4,7 @@ import React, { createContext, useState } from "react";
 
 export type tableRowsProps = {
     items: any[];
-    sortDescriptor?: { [key: string]: string };
+    sortDescriptor?: Record<string, string>;
 };
 
 type TableContextType = {

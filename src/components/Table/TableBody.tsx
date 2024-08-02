@@ -117,7 +117,7 @@ export default function TableBody({ ...props }: TableBodyProps) {
             return handleCheckedItem(rowSelection);
         }
 
-        //eslint-disable-next-line
+        // eslint-disable-next-line
     }, [rowSelection]);
 
     if (rowsData.length === 0) {
