@@ -2,23 +2,21 @@
 
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-import { CheckIcon } from "@heroicons/react/16/solid";
 
-export default function Checkbox({
-    checked = false,
-    onChange,
-}: {
+type CheckboxProps = {
     checked?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}) {
+    children?: React.ReactNode;
+};
+
+export default function Checkbox({ children, checked = false, onChange }: CheckboxProps) {
     //** States */
     const [selected, setSelected] = useState(checked);
 
     //** Styles */
     const checkBoxClassName = clsx(
-        selected && "before:bg-primary before:border-primary",
-        "before:rounded-[calc(theme(borderRadius.medium)*0.6)] after:rounded-[calc(theme(borderRadius.medium)*0.6)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none",
-        "relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-primary after:text-primary-foreground text-primary-foreground w-5 h-5 mr-2 rounded-[calc(theme(borderRadius.medium)*0.6)]",
+        "relative w-5 h-5 inline-flex items-center justify-center flex-shrink-0 mr-2 text-white border border-gray-300 rounded-md transition-transform overflow-hidden",
+        selected && "bg-primary border-primary",
     );
 
     //** Functions */
@@ -42,8 +40,29 @@ export default function Checkbox({
                 onChange={event => handleChange(event)}
             />
             <p className={checkBoxClassName}>
-                {selected && <CheckIcon className="relative w-4 text-white" />}
+                <svg
+                    aria-hidden="true"
+                    role="presentation"
+                    viewBox="0 0 17 18"
+                    className={clsx(
+                        "w-4 h-3 z-10 transition-opacity",
+                        selected ? "opacity-1" : "opacity-0",
+                    )}
+                >
+                    <polyline
+                        fill="none"
+                        points="1 9 7 14 15 4"
+                        stroke="currentColor"
+                        strokeDasharray="22"
+                        strokeDashoffset="44"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        style={{ transition: "stroke-dashoffset 250ms linear 0.2s" }}
+                    ></polyline>
+                </svg>
             </p>
+            {children && children}
         </label>
     );
 }
