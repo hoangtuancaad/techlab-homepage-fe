@@ -42,11 +42,8 @@ const config: Config = {
             // Keyframes
             keyframes: () => ({
                 zoomIn: {
-                    "0%": {
-                        opacity: "0",
-                        transform: "translateY(100px) scale(0.6) translateZ(100px)",
-                    },
-                    "100%": { opacity: "1", transform: "translateY(0px) scale(1) translateZ(0px)" },
+                    "0%": { transform: "scale(0)" },
+                    "100%": { transform: "scale(1)" },
                 },
                 fadeIn: {
                     "0%": { opacity: "0" },

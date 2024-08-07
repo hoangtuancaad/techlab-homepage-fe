@@ -1,8 +1,8 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { URL } from "@/config/urls";
+// import { URL } from "@/config/urls";
 import { ROUTE } from "@/config/routes";
-import { fetchData } from "@/utils/fetch";
+// import { fetchData } from "@/utils/fetch";
 
 export const authOptions: NextAuthOptions = {
     // Configure one or more authentication providers
@@ -30,37 +30,42 @@ export const authOptions: NextAuthOptions = {
             //** UI for .../api/auth/signin */
 
             async authorize(credentials) {
-                // // Example implementation:
-                // const user = {
-                //     id: "1",
-                //     lastName: "Nguyen",
-                //     firstName: "Hoang Tuan",
-                //     email: "nhtuan212@gmail.com",
-                // };
+                //** Mock login */
+                const user = {
+                    id: "1",
+                    lastName: "Nguyen",
+                    firstName: "Hoang Tuan",
+                    email: "nhtuan212@gmail.com",
+                };
 
-                return await fetchData({
-                    endpoint: URL.LOGIN,
-                    options: {
-                        method: "POST",
-                        body: JSON.stringify({
-                            username: credentials?.username,
-                            password: credentials?.password,
-                        }),
-                    },
-                }).then(res => {
-                    const { code, message, data } = res;
+                if (credentials?.username === "admin" && credentials?.password === "admin") {
+                    return user;
+                }
 
-                    if (code === 200) {
-                        return {
-                            id: data?.id,
-                            username: data?.username,
-                            email: data?.email,
-                            role: data?.role,
-                        };
-                    }
+                throw new Error("Invalid username or password");
 
-                    throw new Error(JSON.stringify({ code, message }));
-                });
+                //** Fetch login with API */
+                // return await fetchData({
+                //     endpoint: URL.LOGIN,
+                //     options: {
+                //         method: "POST",
+                //         body: JSON.stringify({
+                //             username: credentials?.username,
+                //             password: credentials?.password,
+                //         }),
+                //     },
+                // }).then(res => {
+                //     const { code, message, data } = res;
+                //     if (code === 200) {
+                //         return {
+                //             id: data?.id,
+                //             username: data?.username,
+                //             email: data?.email,
+                //             role: data?.role,
+                //         };
+                //     }
+                //     throw new Error(JSON.stringify({ code, message }));
+                // });
             },
         }),
     ],

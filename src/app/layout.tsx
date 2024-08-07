@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Login from "@/layouts/Login";
 import Layouts from "@/layouts";
 import AuthProvider from "@/components/AuthProvider";
 import { getServerSession } from "next-auth";
@@ -25,13 +26,19 @@ export default async function RootLayout({
 }>) {
     const session: ProfileProps | null = (await getServerSession(authOptions)) as ProfileProps;
 
+    //** Functions */
+    const renderRootLayout = () => {
+        if (session) {
+            return <Layouts session={session}>{children}</Layouts>;
+        }
+
+        return <Login />;
+    };
+
     return (
         <html lang="en">
             <body className={roboto.className}>
-                <AuthProvider>
-                    <Layouts session={session}>{children}</Layouts>
-                    {/* {session ? <Layouts session={session}>{children}</Layouts> : children} */}
-                </AuthProvider>
+                <AuthProvider>{renderRootLayout()}</AuthProvider>
             </body>
         </html>
     );

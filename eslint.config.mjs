@@ -54,7 +54,7 @@ const eslintConfig = [
             "**/node_modules/**",
             "**/dist/**",
             "**/public/**",
-            "**/**/*.scss",
+            "**/src/**/*.scss",
         ],
     },
 ];

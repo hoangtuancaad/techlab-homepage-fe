@@ -27,11 +27,12 @@ const Input = React.forwardRef(
         return (
             <div className={clsx("input", className)}>
                 {label && <label className="text-sm">{label}</label>}
-                <div className="input-group">
-                    {startContent && <span className="mr-2">{startContent}</span>}
+                <div className="input-group flex items-center gap-2">
+                    {startContent && <span>{startContent}</span>}
 
                     <input ref={ref} type={type} {...props} />
-                    {endContent && <span className="ml-2">{endContent}</span>}
+
+                    {endContent && <span>{endContent}</span>}
                 </div>
 
                 {errorMessage && <div className="errorMessage">{errorMessage}</div>}

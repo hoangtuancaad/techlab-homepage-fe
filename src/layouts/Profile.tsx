@@ -1,8 +1,12 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import ImageComponent from "@/components/Image";
+import { Dropdown, DropdownButton, DropdownItem, DropdownMenu } from "@/components/Dropdown";
+import { signOut } from "next-auth/react";
 import { BellIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/16/solid";
 
 export default function Profile() {
     return (
@@ -13,11 +17,31 @@ export default function Profile() {
                 </span>
                 <BellIcon className="w-6" />
             </div>
-            <div className="w-10 h-10">
-                <ImageComponent
-                    className="rounded-full"
-                    src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                />
+            <div>
+                <Dropdown>
+                    <DropdownButton>
+                        <ImageComponent
+                            className="rounded-full"
+                            src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                        />
+                    </DropdownButton>
+
+                    <DropdownMenu>
+                        <DropdownItem>
+                            <Link
+                                href="#"
+                                className="flex items-center gap-2"
+                                onClick={async () => {
+                                    await signOut({ redirect: false, callbackUrl: "/" });
+                                    window.location.reload();
+                                }}
+                            >
+                                <ArrowLeftEndOnRectangleIcon className="w-4" />
+                                Logout
+                            </Link>
+                        </DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
             </div>
         </div>
     );
