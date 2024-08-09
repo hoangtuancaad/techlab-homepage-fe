@@ -22,12 +22,6 @@
     }
 }
 
-// Header
-.header {
-    @apply flex items-center justify-between;
-    @apply py-2;
-}
-
 // Card
 .card {
     @apply flex flex-col gap-4 p-4 bg-white border rounded-md shadow-md;

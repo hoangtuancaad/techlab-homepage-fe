@@ -13,6 +13,7 @@ const config: Config = {
                 primary: {
                     DEFAULT: "#ec4899",
                     400: "#f472b6",
+                    800: "#ff007e",
                 },
                 error: {
                     DEFAULT: "#ef4444",
@@ -35,6 +36,7 @@ const config: Config = {
             // Animation
             animation: {
                 zoomIn: "zoomIn .2s ease-in-out",
+                fadeOut: "fadeOut .2s ease-in-out",
                 fadeIn: "fadeIn .2s ease-in-out",
                 fadeInLeft: "fadeInLeft .2s ease-in-out",
             },

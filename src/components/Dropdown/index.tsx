@@ -23,7 +23,7 @@
 
 "use client";
 
-import React, { ButtonHTMLAttributes, HTMLAttributes, useContext, useRef } from "react";
+import React, { ButtonHTMLAttributes, HTMLAttributes, useContext, useEffect, useRef } from "react";
 import clsx from "clsx";
 import DropdownProvider, { DropdownContext } from "./DropdownProvider";
 
@@ -55,7 +55,7 @@ export const DropdownButton = ({
 
     return (
         <button
-            className={clsx("relative w-10 h-10 z-[51]", className)}
+            className={clsx("relative w-full h-full", className)}
             type={type}
             onClick={() => setOpen(!open)}
             {...props}
@@ -68,32 +68,38 @@ export const DropdownButton = ({
 export const DropdownMenu = ({ className, children, ...props }: DropdownProps) => {
     const { open, setOpen } = useContext(DropdownContext);
 
+    //** Effects */
+    useEffect(() => {
+        //** Handle outside click */
+        const handleOutsideClick = (event: MouseEvent) => {
+            const dropdownMenu = document.getElementById("dropdown-menu");
+            if (dropdownMenu && !dropdownMenu.contains(event.target as Node)) {
+                setOpen(false);
+            }
+        };
+
+        if (open) {
+            document.addEventListener("mousedown", handleOutsideClick);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, [open, setOpen]);
+
     return (
         open && (
-            <>
-                {/**
-                 * Backdrop for closing the dropdown menu
-                 * when clicked outside the dropdown menu.
-                 */}
-                <div
-                    className={clsx("fixed w-full h-full top-0 left-0 bg-transparent")}
-                    onClick={() => setOpen(false)}
-                ></div>
-
-                {/**
-                 * Dropdown menu
-                 */}
-                <div
-                    className={clsx(
-                        "absolute right-0 w-40 mt-2 py-2 bg-white border border-gray-200 rounded-md shadow-lg animate-zoomIn z-[51]",
-                        !open && "animate-zoomOut",
-                        className,
-                    )}
-                    {...props}
-                >
-                    {children}
-                </div>
-            </>
+            <div
+                id="dropdown-menu"
+                className={clsx(
+                    "absolute right-0 w-40 mt-2 py-2 bg-white border border-gray-200 rounded-md shadow-lg animate-zoomIn z-[51]",
+                    !open && "animate-zoomOut",
+                    className,
+                )}
+                {...props}
+            >
+                {children}
+            </div>
         )
     );
 };
