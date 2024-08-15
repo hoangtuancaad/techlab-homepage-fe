@@ -16,12 +16,12 @@ export default function SubMenu({
     return (
         <ul
             className={clsx(
-                "absolute top-full right-[-1rem] min-w-40 bg-white shadow-lg animate-zoomIn",
+                "absolute top-full right-[-1rem] min-w-44 bg-white shadow-lg animate-zoomIn",
             )}
         >
             {item?.children?.map(child => (
-                <li key={child.url} className="p-2 border-b">
-                    <Link href={child.url} className="block">
+                <li key={child.url} className="border-b">
+                    <Link href={child.url} className="block p-2 text-black hover:bg-gray-50">
                         {child.label}
                     </Link>
                 </li>

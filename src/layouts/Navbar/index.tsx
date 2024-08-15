@@ -30,7 +30,7 @@ export default function Navbar() {
                     <li
                         key={item.url}
                         className={clsx(
-                            "relative text-gray-700 hover:text-gray-900",
+                            "relative text-gray-700",
                             pathname === item.url && "text-primary",
                         )}
                         onMouseEnter={() =>
